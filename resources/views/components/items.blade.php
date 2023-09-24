@@ -8,7 +8,7 @@
     <li>
         <form action="/logout" method="POST">
           @csrf
-          <button href="/logout" class="block py-2 pr-4 pl-3">Logout</button>
+          <button href="/logout" class="block py-2 pr-4 pl-3">Sign out</button>
         </form>
     </li>
   </ul>
