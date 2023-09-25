@@ -8,7 +8,6 @@
 
 {{-- automatic read in components folder --}}
 <x-nav :data="$array"/>
-<x-messages />
 
 <header class="max-w-lg mx-auto mt-5">
   <a href="">

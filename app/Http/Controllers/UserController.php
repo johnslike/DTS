@@ -36,6 +36,8 @@ class UserController extends Controller
 
             return redirect('/')->with('message', 'Welcome Back!');
         }
+
+        return back()->withErrors(['email', 'Login failed'])->onlyInput('email');
         
     }
 
