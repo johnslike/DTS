@@ -23,7 +23,7 @@
             <form action="/login/process" method="POST" class="flex flex-col">
                 @csrf
                     @error('email')
-                        <p class="text-red-500 text-xs p-2">
+                        <p x-data="{show : true}" x-show="show" x-init="setTimeout(() => show = false, 3000)" class="bg-gray-400 font-bold text-center font-lg text-red-500 text-xs p-2 mb-2">
                             {{$message}}
                         </p>
                     @enderror

@@ -32,6 +32,9 @@
             <th scope="col" class="py-3 px-6">
                 Remarks
             </th>
+            <th scope="col" class="py-3 px-6">
+                Action
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -49,10 +52,16 @@
             <td class="py-4 px-6">
               {{$document -> remarks}}
             </td>
+            <td class="py-4 px-6">
+              <a href="/document/{{$document -> id}}" class="bg-sky-600 text-white px-4 py-1 rounded">View</a>
+            </td>
           </tr>
           @endforeach
         </tbody>
       </table>
+          <div class="mx-auto max-w-lg pt-6 p-4">
+          {{$documents->links()}}
+          </div>
     </div>
   </section>
 

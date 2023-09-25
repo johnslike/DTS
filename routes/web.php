@@ -24,10 +24,19 @@ use Illuminate\Support\Facades\Route;
 //update - Update data
 //destroy - delete data
 
-Route::get('/', [DocumentsController::class, 'index'])->middleware('auth');
-Route::get('/register', [UserController::class, 'register']);
-Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
-Route::post('/login/process', [UserController::class, 'process']);
-Route::post('/logout', [UserController::class, 'logout']);
+Route::controller(UserController::class)->group(function(){
+    Route::get('/register', 'register');
+    Route::get('/login', 'login')->name('login')->middleware('guest');
+    Route::post('/login/process', 'process');
+    Route::post('/logout', 'logout');
+    Route::post('/store', 'store');
+});
 
-Route::post('/store', [UserController::class, 'store']);
+Route::controller(DocumentsController::class)->group(function(){
+    Route::get('/', 'index')->middleware('auth');
+    Route::get('/add/document', 'create');
+    Route::post('/add/document', 'store');
+    Route::get('/document/{id}', 'show');
+    Route::put('/document/{document}', 'update');
+    Route::delete('/document/{document}', 'destroy');
+});
